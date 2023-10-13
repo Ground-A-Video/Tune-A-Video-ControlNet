@@ -5,7 +5,7 @@ This ControlNet-Attached Tune-A-Video, so called <b>"Tune-A-Video-ControlNet"</b
 
 ## Notes
 1.  We apply the same Model Inflation Logic of Tune-A-Video on ControlNet, converting ControlNet2D to <b>ControlNet3D</b>.<br>
-In specific, Self-Attentions are extended to Sparse-Causal Attentions in every transformer block, while Conv 2D blocks are replaced by Pseudo Conv 3D blocks. (The conv2d blocks in the ControlNet Hint Encoder, so called 'ControlNetConditioningEmbedding' class remains as conv2d since converting them drastically degrades performance.)<br>
+In specific, Self-Attentions are extended to Sparse-Causal Attentions in every transformer block, while Conv 2D blocks are replaced by Pseudo Conv 3D blocks. (The conv2d blocks in the ControlNet Hint Encoder, so called 'ControlNetConditioningEmbedding' class remains unchanged as conv2d since converting them drastically degrades performance.)<br>
 2.  Then the <b>ControlNet-attached Tune-A-Video</b> model is trained on the input video for 500 steps.
 3.  For future extensions, we implemented support for <b>Multi-ControlNet</b> class. In other words, you can attach multiple ControlNets to the Tune-A-Video backbone depending on your GPU constraints.
 
