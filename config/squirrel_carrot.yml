@@ -1,0 +1,45 @@
+checkpointing_steps: 500
+control_types:
+- depth
+controlnet_conditioning_scale: 1.0
+controlnet_model_path:
+- lllyasviel/sd-controlnet-depth
+learning_rate: 1e-5
+logdir: logs/squirrel_carrot
+only_mid_control: false
+pretrained_model_path: runwayml/stable-diffusion-v1-5
+save_detected_maps: true
+save_finetuned_models: false
+seed: 12345
+shuffle_clips: false
+train_controlnet: true
+train_controlnet_zero_convs: false
+train_dataset:
+  image_size: 512
+  n_sample_frame: 8
+  path: data/squirrel_carrot
+  prompt: a squirrel is eating a carrot
+  sampling_rate: 1
+  stride: 1
+train_steps: 500
+train_temporal_conv: false
+validation_sample_logger:
+  clip_length: 8
+  grid_column_size: 2
+  guidance_scale: 12.5
+  num_inference_steps: 50
+  num_inv_steps: 50
+  prompts:
+  - a squirrel is eating a carrot
+  - a fennec fox is eating a carrot
+  - a fennec fox is eating a sausage
+  - a fennec fox is eating a sausage, in desert
+  sample_seeds:
+  - 12345
+  use_inv_latent: true
+validation_steps: 100
+prompt_titles:
+- squirrel
+- fox
+- fox_sausage
+- fox_sausage_desert

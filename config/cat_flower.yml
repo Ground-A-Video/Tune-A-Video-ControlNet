@@ -1,0 +1,45 @@
+checkpointing_steps: 500
+control_types:
+- depth
+controlnet_conditioning_scale: 1.0
+controlnet_model_path:
+- lllyasviel/sd-controlnet-depth
+learning_rate: 1e-5
+logdir: logs/cat_flower
+only_mid_control: false
+pretrained_model_path: runwayml/stable-diffusion-v1-5
+save_detected_maps: true
+save_finetuned_models: false
+seed: 12345
+shuffle_clips: false
+train_controlnet: true
+train_controlnet_zero_convs: false
+train_dataset:
+  image_size: 512
+  n_sample_frame: 8
+  path: data/cat_flower
+  prompt: a cat is roaring
+  sampling_rate: 1
+  stride: 1
+train_steps: 500
+train_temporal_conv: false
+validation_sample_logger:
+  clip_length: 8
+  grid_column_size: 2
+  guidance_scale: 12.5
+  num_inference_steps: 50
+  num_inv_steps: 50
+  prompts:
+  - a cat is roaring
+  - a dog is roaring
+  - a dog is roaring on the beach
+  - a dog is roaring on the beach, under the sky
+  sample_seeds:
+  - 12345
+  use_inv_latent: true
+validation_steps: 100
+prompt_titles:
+- cat
+- dog
+- dog_beach
+- dog_beach_sky

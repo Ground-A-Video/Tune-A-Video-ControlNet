@@ -1,0 +1,45 @@
+checkpointing_steps: 500
+control_types:
+- depth
+controlnet_conditioning_scale: 1.0
+controlnet_model_path:
+- lllyasviel/sd-controlnet-depth
+learning_rate: 1e-5
+logdir: logs/bear
+only_mid_control: false
+pretrained_model_path: runwayml/stable-diffusion-v1-5
+save_detected_maps: false
+save_finetuned_models: false
+seed: 12345
+shuffle_clips: false
+train_controlnet: true
+train_controlnet_zero_convs: false
+train_dataset:
+  image_size: 512
+  n_sample_frame: 8
+  path: data/bear
+  prompt: a brown bear walking on the rock, against a wall
+  sampling_rate: 1
+  stride: 1
+train_steps: 500
+train_temporal_conv: false
+validation_sample_logger:
+  clip_length: 8
+  grid_column_size: 2
+  guidance_scale: 12.5
+  num_inference_steps: 50
+  num_inv_steps: 50
+  prompts:
+  - pink bear walking on the rock, against a wall
+  - pink bear walking on snowy alpine, against a wall
+  - pink bear walking on snowy alpine, next to lake, against a wall
+  - pink bear walking on snowy alpine, next to lake, against a blue wall
+  sample_seeds:
+  - 12345
+  use_inv_latent: true
+validation_steps: 100
+prompt_titles:
+- pink
+- pink_snowy
+- pink_snowy_lake
+- pink_snowy_lake_blue
